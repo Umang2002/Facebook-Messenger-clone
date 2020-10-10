@@ -1,0 +1,21 @@
+.message{
+    padding: 10px;
+    margin: 10px;
+    width: fit-content;
+    /* border-radius: 5px; */
+}
+
+.message_User{
+    margin-left:auto;
+    color:white;
+    text-align: left !important;
+}
+.message_UserCard{
+background-color: #0b81ff !important;
+border-radius: 20px !important;
+}
+
+.message_guestcard{
+ background-color: #e9e9eb !important;
+ border-radius: 20px !important
+    }

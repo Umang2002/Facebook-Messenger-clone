@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+  
+  
+}
+.darkmode{
+  color:white;
+  background-color: #272727;
 }
 
 .app_form{
@@ -7,7 +13,7 @@
    position:fixed;
    bottom:0;
    z-index: 1;
-   background-color: #e9e9eb;
+   background-color: #808080;
    border-radius: 10px; 
    width:90%;
    margin:20px;
@@ -28,4 +34,51 @@
 }
 .app__iconbutton{
   flex:0;
+}
+
+.Switch{
+  width:50px !important;
+  height :25px !important;
+}
+
+
+/* @media (prefers-color-scheme: dark) {
+	body {
+		background-color: #272727;
+		color: #ffffff;
+	}
+} */
+
+
+input.toggle-round {
+  display:none;
+}
+input.toggle-round + label {
+  display: block;
+  position: relative;
+  cursor: pointer;
+}
+input.toggle-round + label {
+  padding: 1px;
+  width: 85px;
+  height: 35px;
+  background-color: #ddd;
+  border-radius: 50px;
+  border: 1px solid #ccc;
+}
+input.toggle-round + label:after {
+  display: block;
+  position: absolute;
+  content: "";
+  width: 35px; height: 35px;
+  background-color: white;
+  border-radius: 100%;
+  box-shadow: 0 2px 3px #888;
+  transition: margin 0.5s;
+}
+input.toggle-round:checked + label {
+  background-color: #0078ff
+}
+input.toggle-round:checked + label:after {
+  margin-left: 50px;
 }

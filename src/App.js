@@ -12,12 +12,13 @@ import { IconButton } from '@material-ui/core';
 import './App.css';
 function App() {
   const [input,setInput]=useState('')
-  const [messages,setMessages]=useState([])
-  const [username,setUsername] = useState('');
-
-   useEffect(()=>{
+  const [messages,setMessages] =useState([])
+  const [username,setUsername] =useState('');
+  const [Darkmode,SetDarkmode] =useState(false)
+  
+ useEffect(()=>{
      db.collection('messages')
-     .orderBy('timestamp','desc')
+     .orderBy('timestamp','asc')
      .onSnapshot(Snapshot=>{
        setMessages(Snapshot.docs.map(doc=> ({id:doc.id ,message:doc.data()})))
      });
@@ -26,6 +27,8 @@ function App() {
   useEffect(()=>{
      setUsername(prompt("Please! Enter Your Name... "));
    },[])
+
+
 
   const sendMessage = (e)=>{
     //all the logic is goes here
@@ -38,15 +41,24 @@ function App() {
     
     setInput('')
   }
+
  return (
      <div className="App">
+       <div className={Darkmode ? "darkmode" : "lightmode"}> 
+   
+      <div className="Switch">
+      <input id="cb_id" class="toggle-round" type="checkbox" onChange={()=> SetDarkmode(prevMode => !prevMode)}></input>
+      <label for="cb_id"></label> 
+      </div>
+   
       <img className="image_logo" src="https://www.flaticon.com/svg/static/icons/svg/1384/1384893.svg"></img>
       <h1>FaceBook-Messanger</h1>
-      <h3>Welcome {username}</h3>
+      <h3>Welcome {username}
+      </h3>
       {/* input field */}
       <form  className="app_form">
       <FormControl className="app_formcontrol">
-     
+ 
       <Input placeholder='Enter Message...' className="app_input" value={input} onChange={e=> setInput(e.target.value)} />
        <IconButton className="app__iconbutton" disabled={!input} variant="contained" color="primary" type="submit" onClick={sendMessage}
        >
@@ -61,7 +73,7 @@ function App() {
         })
       }
       </FlipMove>
-    
+      </div>
       </div>
   );
 }

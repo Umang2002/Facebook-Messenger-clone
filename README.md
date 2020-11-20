@@ -1,3 +1,2 @@
 # Facebook-Messenger-clone
-
-view live hosted at : https://facebook-messanger-clone-9d7c5.web.app/
+This is the facebook messanger clone build using the reactJS,css for the saving the messages firebase used in this.
